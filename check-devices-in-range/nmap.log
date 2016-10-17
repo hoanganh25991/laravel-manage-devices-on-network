@@ -1,0 +1,58 @@
+Starting Nmap 7.12 ( https://nmap.org ) at 2016-10-17 13:19 SE Asia Standard Time
+Nmap scan report for 192.168.1.49
+Host is up (0.0030s latency).
+MAC Address: 00:D0:CB:00:00:05 (Dasan)
+Nmap scan report for 192.168.1.50
+Host is up (0.13s latency).
+MAC Address: B8:E8:56:3C:DE:42 (Apple)
+Nmap scan report for 192.168.1.56
+Host is up (0.12s latency).
+MAC Address: 44:D9:E7:20:DB:40 (Ubiquiti Networks)
+Nmap scan report for 192.168.1.57
+Host is up (0.12s latency).
+MAC Address: B4:43:0D:B0:8A:2B (Broadlink)
+Nmap scan report for 192.168.1.59
+Host is up (0.16s latency).
+MAC Address: B4:43:0D:C3:F9:A3 (Broadlink)
+Nmap scan report for 192.168.1.60
+Host is up (0.16s latency).
+MAC Address: B8:27:EB:1C:AB:E8 (Raspberry Pi Foundation)
+Nmap scan report for 192.168.1.61
+Host is up (0.16s latency).
+MAC Address: 70:3E:AC:E0:AF:A9 (Apple)
+Nmap scan report for 192.168.1.62
+Host is up (0.097s latency).
+MAC Address: E8:50:8B:35:A3:23 (Samsung Electro Mechanics)
+Nmap scan report for 192.168.1.67
+Host is up (0.16s latency).
+MAC Address: 98:01:A7:9B:DF:AB (Unknown)
+Nmap scan report for 192.168.1.68
+Host is up (0.16s latency).
+MAC Address: 54:27:58:37:3F:E9 (Motorola (Wuhan) Mobility Technologies Communication)
+Nmap scan report for 192.168.1.72
+Host is up (0.11s latency).
+MAC Address: 5C:CF:7F:C1:E8:75 (Espressif)
+Nmap scan report for 192.168.1.73
+Host is up (0.15s latency).
+MAC Address: B4:43:0D:DA:EF:B7 (Broadlink)
+Nmap scan report for 192.168.1.89
+Host is up (0.21s latency).
+MAC Address: F8:32:E4:14:35:EF (Asustek Computer)
+Nmap scan report for 192.168.1.90
+Host is up (0.41s latency).
+MAC Address: 2C:33:7A:24:2F:75 (Hon Hai Precision Ind.)
+Nmap scan report for 192.168.1.93
+Host is up (0.19s latency).
+MAC Address: A0:02:DC:58:8A:92 (Amazon Technologies)
+Nmap scan report for 192.168.1.95
+Host is up (0.18s latency).
+MAC Address: CC:2D:83:26:21:17 (Unknown)
+Nmap scan report for 192.168.1.100
+Host is up (0.15s latency).
+MAC Address: 04:69:F8:DC:01:E3 (Apple)
+Nmap scan report for 192.168.1.111
+Host is up (0.17s latency).
+MAC Address: 00:0B:81:9E:A7:9B (Kaparel)
+Nmap scan report for 192.168.1.65
+Host is up.
+Nmap done: 256 IP addresses (19 hosts up) scanned in 23.44 seconds

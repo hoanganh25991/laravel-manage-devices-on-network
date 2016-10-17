@@ -1,0 +1,16 @@
+{
+  "name": "node-js-check-ip-in-range-v2",
+  "version": "1.0.0",
+  "description": "node-js-check-ip-in-range-v2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anh Le Hoang",
+  "license": "MIT",
+  "dependencies": {
+    "libnmap": "^0.2.33",
+    "node-libnmap": "^0.2.15",
+    "request": "^2.75.0"
+  }
+}
