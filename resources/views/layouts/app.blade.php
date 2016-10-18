@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
 
     <!-- Styles -->
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
@@ -77,11 +78,12 @@
                 </div>
             </div>
         </nav>
-
+        <!-- Scripts -->
+        {{--we need jquery used in content-script--}}
+        <script src="{{ url('js/app.js') }}"></script>
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ url('js/app.js') }}"></script>
+
 </body>
 </html>

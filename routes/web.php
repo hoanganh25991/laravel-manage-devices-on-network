@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@index');
 //Route::group(['middleware' => 'auth'], function(){
     Route::post('device/update', 'DeviceController@update');
 //});
+
+Route::get('device/add', 'DeviceController@add');
+Route::post('device/add', 'DeviceController@add');
+
+Route::get('record/all-by-user', 'RecordController@allByUser');
