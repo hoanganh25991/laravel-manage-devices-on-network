@@ -14,7 +14,7 @@ class AlterTableDevicesAddName extends Migration
     public function up()
     {
         Schema::table('devices', function (Blueprint $table) {
-            $table->string('name', 50)->after('id');
+            $table->string('name', 50)->after('id')->nullable();
         });
     }
 

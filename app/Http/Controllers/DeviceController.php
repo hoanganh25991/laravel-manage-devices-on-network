@@ -26,5 +26,4 @@ class DeviceController extends Controller
         });
 
         return response(['msg'=>'success'], 200, $this->jsonHeader());
-    }
-}
+    } }
