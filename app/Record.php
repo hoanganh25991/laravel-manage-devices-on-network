@@ -13,9 +13,9 @@ class Record extends Model
     protected $hidden = ['updated_at'];
 
 
-//    public function getCreatedAtAttribute($val){
-//        return $this->timestamp($val);
-//    }
+    public function getCreatedAtAttribute($val){
+        return $this->timestamp($val);
+    }
 
     public function scopeOnLine($query){
         //with five minute internal update

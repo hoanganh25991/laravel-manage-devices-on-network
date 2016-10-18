@@ -28,7 +28,8 @@ class RecordController extends Controller
             'records' => $records
         ]);
         
-        return $records;
+//        return $records;
+        return view('record.all');
     }
 
 }
