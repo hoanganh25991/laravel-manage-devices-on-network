@@ -27,3 +27,5 @@ Route::get('device/add', 'DeviceController@add');
 Route::post('device/add', 'DeviceController@add');
 
 Route::get('record/all-by-user', 'RecordController@allByUser');
+
+Route::get('user/status', 'UserController@allUserStatus');
