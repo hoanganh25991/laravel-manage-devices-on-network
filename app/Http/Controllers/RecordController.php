@@ -9,6 +9,7 @@ use App\Traits\Json;
 use Auth;
 use App\Device;
 use App\Record;
+use JavaScript;
 
 class RecordController extends Controller
 {
@@ -22,6 +23,10 @@ class RecordController extends Controller
         $deviceIds = $devices->pluck('id');
         
         $records = Record::whereIn('device_id', $deviceIds)->get();
+        
+        JavaScript::put([
+            'records' => $records
+        ]);
         
         return $records;
     }
