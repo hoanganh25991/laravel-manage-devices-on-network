@@ -45,25 +45,28 @@ for(let j = 1; j <= numDayInMonth; j += 1){
 	}
 }
 
-let recordTmp = {};
-
-records.forEach(record => {
-	let date = new Date(record.created_at * 1000);
-	let minute = date.getHours() * 60 + date.getMinutes();
-	let minuteRounded = minute - minute % 5;
-	let recordPerDay = (END_RECORD_TIME*60 + START_RECORD_TIME*60) / 5;
-	let order = date.getDate() * recordPerDay + (minuteRounded - START_RECORD_TIME*60) / 5;
-	
+// let recordTmp = {};
+//
+// records.forEach(record => {
+// 	let date = new Date(record.created_at * 1000);
+// 	let minute = date.getHours() * 60 + date.getMinutes();
+// 	let recordPerDay = (END_RECORD_TIME*60 - START_RECORD_TIME*60) / 5 + 1;
+// 	let order = (date.getDate() - 1) * recordPerDay + Math.floor((minute - START_RECORD_TIME*60) / 5);
+//
+// 	record.count = 1;
+//
+// 	recordTmp[order] = record;
+// });
+//
+// console.log(recordTmp);
+//
+// recordReportMap.forEach((record, index) => {
+// 	if(recordTmp[index])
+// 		recordReportMap[index] = recordTmp[index];
+// });
+records.forEach(record=>{
 	record.count = 1;
-
-	recordTmp[order] = record;
-});
-
-console.log(recordTmp);
-
-recordReportMap.forEach((record, index) => {
-	if(recordTmp[index])
-		recordReportMap[index] = recordTmp[index];
+	recordReportMap.push(record);
 });
 
 console.log(recordReportMap[6327]);
@@ -92,7 +95,7 @@ let countDevices = fiveMinuteOfDate.group().reduceSum(function(d){
 	return d.count;
 });
 
-console.log(countDevices.top(100));
+console.log(countDevices.top(10));
 
 let countDeviceRange = [0, 1];
 
@@ -105,8 +108,8 @@ heatColorMapping.domain = function(){
 };
 
 monthlyReportChart
-	.width(9600)
-	.height(5440)
+	.width(960*2)
+	.height(544*2)
 	.xBorderRadius(0)
 	.yBorderRadius(0)
 	.dimension(fiveMinuteOfDate)
@@ -124,7 +127,10 @@ monthlyReportChart
 		return +d.value;
 	})
 	.title(function(d){
-		var date = new Date(d.key[1] * (86400) * 1000);
+		let date = new Date(d.key[1] * (86400) * 1000);
+		// console.log(date);
+		// let actualDate = new Date(date.getTime() + d.key[0]*60*1000);
+		// console.log(actualDate)
 		// var dateTitle = date.getFullYear() + '-' + monthNames[date.getMonth()] + '-' + date.getDate();
 		var dateTitle = date.toString();
 		return " Date:   " + dateTitle + "\n" +
@@ -134,7 +140,10 @@ monthlyReportChart
 	//                                    .domain([1, 0])
 	//                                    .range(['white', '#8CC665']))
 	.colors(heatColorMapping)
-	.calculateColorDomain();
+	.calculateColorDomain()
+	// .mouseZoomable(true)
+	.zoomScale([extent])
+;
 
 monthlyReportChart.colsLabel(function(d){//d = 16782
 	var timestamp = d * (86400); // d * (24 * 60 * 60);
