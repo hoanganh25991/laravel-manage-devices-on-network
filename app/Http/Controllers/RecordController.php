@@ -29,6 +29,28 @@ class RecordController extends Controller
         ]);
         
 //        return $records;
+        return view('record.by-user');
+    }
+    
+    public function all(){
+        $records = Record::with(['device' => function($device){
+            //only load DEVICE has user_id
+            //means belongs to someone
+            $device->where('user_id', '!=', null);
+        }])->thisMonth()->get();
+
+        $records = $records->filter(function($record){
+            return !empty($record->device);
+        });
+
+        //transform
+        $records->each(function($record){
+            $record->user_id =  $record->device->user_id;
+        });
+        JavaScript::put([
+            'records' => $records->values()
+        ]);
+//        return $records;
         return view('record.all');
     }
 

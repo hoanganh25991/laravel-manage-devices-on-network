@@ -22,4 +22,12 @@ class Record extends Model
         //online means that USER has RECORD less than five minute ago
         return $query->where('created_at', '>=', Carbon::now()->subMinutes(5));
     }
+    
+    public function device(){
+        return $this->belongsTo(Device::class);
+    }
+
+    public function scopeThisMonth($query){
+        return $query->where('created_at', '>=', Carbon::now()->firstOfMonth());
+    }
 }
