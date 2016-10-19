@@ -70,7 +70,7 @@ records.forEach(record=>{
 });
 
 console.log(recordReportMap[6327]);
-console.log(recordReportMap);
+	console.log(recordReportMap);
 
 // console.log(recordReportMap);
 
@@ -82,6 +82,7 @@ console.log(recordReportMap);
 let monthlyReportChart = dc.heatMap('#monthlyReportChart');
 
 let ndx = crossfilter(recordReportMap);
+window.ndx = ndx;
 
 let fiveMinuteOfDate = ndx.dimension(d => {
 	let date = Math.floor(d.created_at / (86400));
@@ -100,6 +101,7 @@ console.log(countDevices.top(10));
 let countDeviceRange = [0, 1];
 
 let heatColorMapping = function(d){
+	// return d3.scale.linear().domain(countDeviceRange).range(["#F5F8FA", '#8CC665'])(d);
 	return d3.scale.linear().domain(countDeviceRange).range(["white", '#8CC665'])(d);
 };
 
@@ -166,4 +168,8 @@ monthlyReportChart.colsLabel(function(d){//d = 16782
 
 dc.renderAll();
 
+// ndx can add [record, record, record];
+// update record through web socket ᕕ( ᐛ )ᕗ
+// ndx.add([r1, r2, r3,...]);
+// dc.renderAll();
 //handle graph by crossfilter & d3
