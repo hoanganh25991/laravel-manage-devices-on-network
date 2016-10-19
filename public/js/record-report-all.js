@@ -36,7 +36,7 @@ for(let j = 1; j <= numDayInMonth - 10; j += 1){
 // recordsX = records.forEach(record => {
 // 	delete record.device;
 // });
-// recordReportMap = recordReportMap.concat(records);
+recordReportMap = recordReportMap.concat(records);
 
 // records.forEach(record => {
 // 	delete record.user_id;
@@ -69,7 +69,7 @@ let countDevices = fiveMinuteOfDate.group().reduce(
 	function (p, v){
 		if(v.user_id){
 			if(p.userIds.indexOf(v.user_id) == -1)
-				count++;
+				p.count++;
 
 			p.userIds.push(v.user_id);
 		}
@@ -90,7 +90,7 @@ let countDevices = fiveMinuteOfDate.group().reduce(
 			//no device is available
 			//count--
 			if(p.userIds.indexOf(v.user_id) == -1)
-				count--;
+				p.count--;
 		}
 
 		return p;
@@ -159,7 +159,7 @@ monthlyReportChart
 		return d.key[0];
 	})
 	.colorAccessor(function(d){
-		console.log(d.value);
+		// console.log(d.value);
 		return +d.value.count;
 	})
 	.title(function(d){
@@ -170,7 +170,7 @@ monthlyReportChart
 		// var dateTitle = date.getFullYear() + '-' + monthNames[date.getMonth()] + '-' + date.getDate();
 		var dateTitle = date.toString();
 		return " Date:   " + dateTitle + "\n" +
-			"  Σ Devices:   " + d.value;
+			"  Σ Users:   " + d.value.count;
 	})
 	//                          .colors(d3.scale.linear()
 	//                                    .domain([1, 0])
