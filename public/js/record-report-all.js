@@ -159,7 +159,8 @@ monthlyReportChart
 		return d.key[0];
 	})
 	.colorAccessor(function(d){
-		return +d.value;
+		console.log(d.value);
+		return +d.value.count;
 	})
 	.title(function(d){
 		let date = new Date(d.key[1] * (86400) * 1000);
