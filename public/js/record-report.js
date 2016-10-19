@@ -35,8 +35,8 @@ let recordReportSample = {
 let recordReportMap = [];
 
 for(let j = 1; j <= numDayInMonth; j += 1){
+	let date = new Date(year, month, j);
 	for(let i = START_RECORD_TIME*60; i <= END_RECORD_TIME*60; i += 5 ){
-		let date = new Date(year, month, j);
 		let currentSecond = Math.floor(date.getTime()/1000 + i*60);
 
 		let record = Object.assign({}, recordReportSample);
@@ -108,8 +108,8 @@ heatColorMapping.domain = function(){
 };
 
 monthlyReportChart
-	.width(960*2)
-	.height(544*2)
+	.width(960)
+	.height(544)
 	.xBorderRadius(0)
 	.yBorderRadius(0)
 	.dimension(fiveMinuteOfDate)
@@ -142,7 +142,7 @@ monthlyReportChart
 	.colors(heatColorMapping)
 	.calculateColorDomain()
 	// .mouseZoomable(true)
-	.zoomScale([extent])
+	// .zoomScale([extent])
 ;
 
 monthlyReportChart.colsLabel(function(d){//d = 16782
@@ -150,6 +150,18 @@ monthlyReportChart.colsLabel(function(d){//d = 16782
 	var date = new Date(timestamp * 1000);
 //                    return date.getFullYear() + '-' + monthNames[date.getMonth()] + '-' + date.getDate();
 	return monthNames[date.getMonth()] + '-' + date.getDate();
+});
+
+monthlyReportChart.rowsLabel(function(d){//d = 16782
+	let colLabel = '';
+	if(d % 12 == 0)
+		colLabel = d/12 + 'h';
+	return colLabel;
+});
+
+monthlyReportChart.colsLabel(function(d){//d = 16782
+	let date = new Date(d * 86400 * 1000);
+	return date.getDate();
 });
 
 dc.renderAll();
