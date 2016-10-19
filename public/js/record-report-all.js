@@ -28,7 +28,6 @@ for(let j = 1; j <= numDayInMonth - 10; j += 1){
 		let record = Object.assign({}, recordReportSample);
 		record['created_at'] = currentSecond;
 		recordReportMap.push(record);
-		recordReportMap.push(record);
 	}
 }
 
@@ -39,12 +38,12 @@ for(let j = 1; j <= numDayInMonth - 10; j += 1){
 // });
 // recordReportMap = recordReportMap.concat(records);
 
-records.forEach(record => {
-	delete record.user_id;
-	delete record.device;
-	record.id = null;
-	recordReportMap.push(record);
-});
+// records.forEach(record => {
+// 	delete record.user_id;
+// 	delete record.device;
+// 	record.id = null;
+// 	recordReportMap.push(record);
+// });
 
 console.log(recordReportMap);
 
@@ -63,52 +62,72 @@ let fiveMinuteOfDate = ndx.dimension(d => {
 
 console.log('five minute date', fiveMinuteOfDate);
 
-let countDevices = fiveMinuteOfDate.group().reduce(
-	// //add
-	// function (p, v){
-	// 	if(v.user_id){
-	// 		if(p.userIds.indexOf(v.user_id) == -1)
-	// 			count++;
-	//
-	// 		p.userIds.push(v.user_id);
-	// 	}
-	//
-	// 	return p.count;
-	// },
-	// //remove
-	// function (p, v){
-	// 	if(v.user_id){
-	// 		let index = p.userIds.indexOf(v.user_id);
-	// 		//find out, remove one here ONLY
-	// 		//means that one device is OFF
-	// 		if(index != -1)
-	// 			p.userIds.splice(index, 1);
-	//
-	// 		//again check out, if NO v.user_id exist
-	// 		//means he TRULY OFF
-	// 		//no device is available
-	// 		//count--
-	// 		if(p.userIds.indexOf(v.user_id) == -1)
-	// 			count--;
-	// 	}
-	//
-	// 	return p.count;
-	// },
-	// //init
-	// function (){
-	// 	return {
-	// 		userIds: [],
-	// 		count: 0
-	// 	};
-	// }
-	function (p){console.log('kk,v', p); return p+1;},
-	function (p){return p-1;},
-	function (){return 0;}
+// let pSample = {count: 0};
 
+let countDevices = fiveMinuteOfDate.group().reduce(
+	//add
+	function (p, v){
+		if(v.user_id){
+			if(p.userIds.indexOf(v.user_id) == -1)
+				count++;
+
+			p.userIds.push(v.user_id);
+		}
+
+		return p;
+	},
+	//remove
+	function (p, v){
+		if(v.user_id){
+			let index = p.userIds.indexOf(v.user_id);
+			//find out, remove one here ONLY
+			//means that one device is OFF
+			if(index != -1)
+				p.userIds.splice(index, 1);
+
+			//again check out, if NO v.user_id exist
+			//means he TRULY OFF
+			//no device is available
+			//count--
+			if(p.userIds.indexOf(v.user_id) == -1)
+				count--;
+		}
+
+		return p;
+	},
+	//init
+	function (){
+		return {
+			userIds: [],
+			count: 0
+		};
+	}
+	// function (p){console.log('kk,v', p); return p+1;},
+	// function (p){return p-1;},
+	// function (){return 0;}
+	//
 	// function (kk){console.log('kk,v', kk); return kk.count+1;},
 	// function (kk){return kk.count-1;},
 	// function (){return {count: 0};}
+
+	// function (p){console.log('kk,v', p); return p.count+1;},
+	// function (p){return p.count-1;},
+	// function (){return pSample;}
 );
+
+//CAN NOT FILTER ON countDevice
+//because HE ONLY THE FUNCTION STORED
+//how to deal with other, not an real array
+
+// countDevices.filter(row => {
+// 	let tmp = row.values;
+// 	//go through custom reduct, what we get on values
+// 	//IS OBJECT {userIds: [], count: 0}
+// 	//let values for heatmap draw
+// 	row.values = tmp.count;
+// 	row.tmp = tmp;
+// 	return row;
+// });
 
 console.log(countDevices.top(10));
 
