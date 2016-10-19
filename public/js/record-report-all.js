@@ -14,15 +14,13 @@ let lastDayOfMonth  = new Date(year, month + 1, 0);
 let numDayInMonth   = lastDayOfMonth.getDate() - firstDayOfMonth.getDate() + 1;
 
 let recordReportSample = {
-	name: null,
-	mac: null,
-	ip: null,
-	manufacturer: null,
+	id: null,
+	device_id: null
 };
 
 let recordReportMap = [];
 
-for(let j = 1; j <= numDayInMonth; j += 1){
+for(let j = 1; j <= numDayInMonth - 10; j += 1){
 	let date = new Date(year, month, j);
 	for(let i = START_RECORD_TIME*60; i <= END_RECORD_TIME*60; i += 5 ){
 		let currentSecond = Math.floor(date.getTime()/1000 + i*60);
@@ -30,13 +28,23 @@ for(let j = 1; j <= numDayInMonth; j += 1){
 		let record = Object.assign({}, recordReportSample);
 		record['created_at'] = currentSecond;
 		recordReportMap.push(record);
+		recordReportMap.push(record);
 	}
 }
 
 // console.log(recordReportMap[6327]);
 // console.log(recordReportMap);
+// recordsX = records.forEach(record => {
+// 	delete record.device;
+// });
+// recordReportMap = recordReportMap.concat(records);
 
-recordReportMap = recordReportMap.concat(records);
+records.forEach(record => {
+	delete record.user_id;
+	delete record.device;
+	record.id = null;
+	recordReportMap.push(record);
+});
 
 console.log(recordReportMap);
 
@@ -93,9 +101,13 @@ let countDevices = fiveMinuteOfDate.group().reduce(
 	// 		count: 0
 	// 	};
 	// }
-	function (){return 2},
-	function (){return 2},
-	function (){return 2}
+	function (p){console.log('kk,v', p); return p+1;},
+	function (p){return p-1;},
+	function (){return 0;}
+
+	// function (kk){console.log('kk,v', kk); return kk.count+1;},
+	// function (kk){return kk.count-1;},
+	// function (){return {count: 0};}
 );
 
 console.log(countDevices.top(10));
