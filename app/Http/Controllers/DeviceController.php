@@ -34,7 +34,8 @@ class DeviceController extends Controller
 
         //after update, save record @@
 
-        return response(['msg'=>'success'], 200, $this->jsonHeader());
+//        return response(['msg'=>'success'], 200, $this->jsonHeader());
+        return redirect()->back();
     } 
     
     public function add(Request $req){
