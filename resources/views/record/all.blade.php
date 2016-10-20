@@ -9,7 +9,8 @@
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
                         <div id="monthlyReportChartContainer" class="bg-info">
-                            <div id="monthlyReport"></div>
+                            {{--change to for only this user--}}
+                            <div id="monthlyReportChart"></div>
                         </div>
                     </div>
                 </div>
@@ -24,5 +25,5 @@
     <script type="text/javascript" src="{{ url('js/dc.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/reductio.min.js') }}"></script>
 
-    <script src="{{ url('js/record-report-all.js') }}"></script>
+    <script src="{{ url('js/record-report.js') }}"></script>
 @endsection

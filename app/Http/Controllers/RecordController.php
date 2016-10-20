@@ -26,10 +26,11 @@ class RecordController extends Controller
         
         JavaScript::put([
             'records' => $records
+//            'user' => Auth::user()
         ]);
         
 //        return $records;
-        return view('record.by-user');
+        return view('record.by-user')->with(['user' => Auth::user()]);
     }
     
     public function all(){

@@ -13,7 +13,8 @@
                                 <h3>Monthly report</h3>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <div id="monthlyReportChartContainer" class="bg-info">
-                                    <div id="monthlyReportChart"></div>
+                                    {{--change home to ALL USER report--}}
+                                    <div id="monthlyReport"></div>
                                 </div>
                             </div>
                         </div>
@@ -40,5 +41,5 @@
 
 
 <script src="{{ url('js/user-status.js') }}"></script>
-<script src="{{ url('js/record-report.js') }}"></script>
+<script src="{{ url('js/record-report-all.js') }}"></script>
 @endsection

@@ -48,7 +48,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('home') }}">Home</a></li>
                         <li><a href="{{ url('device') }}">Device</a></li>
-                        <li><a href="{{ url('report/all') }}">Report</a></li>
+                        <li><a href="{{ route('report-for-user') }}">Report</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
