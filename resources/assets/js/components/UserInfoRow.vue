@@ -48,8 +48,10 @@
             return {
                 //user: user,
                 showDetail: false
+
             }
         },
+
         methods: {
         }
     }
