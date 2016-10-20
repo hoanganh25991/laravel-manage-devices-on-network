@@ -22,8 +22,8 @@
             </div>
             <div class="col-md-8">
                 <div style="left: -5px;top: 5px; position: absolute;">
-                    <span style="display: block;">{{ user.name }}</span>
-                    <span v-show="user.devices.length > 0" class="text-info">total devices: {{ user.devices.length }} </span>
+                    <span style="display: block;" class="small">{{ user.name }}</span>
+                    <span v-show="user.devices.length > 0" class="small">online by {{ user.devices.length }} devices</span>
                 </div>
                 <!--{{ user.name }}-->
             </div>
@@ -59,7 +59,7 @@
             let vue = this;
             if(this.user.devices.length > 0){
                 let thisRow = $(vue.$el);
-                thisRow.addClass('bg-success');
+                thisRow.addClass('bg-info');
             }
             //console.log(thisRow);
             //console.log('what the heck????');

@@ -18,5 +18,6 @@ elixir(mix => {
        .webpack('app.js')
         .webpack('device-add-vue.js')
         .webpack('user-status.js')
+        .webpack('device-list.js')
     ;
 });

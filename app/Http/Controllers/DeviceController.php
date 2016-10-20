@@ -39,10 +39,21 @@ class DeviceController extends Controller
     
     public function add(Request $req){
         if($req->method() == 'GET'){
+            //load all device on network
             $devices = Device::all();
 
             JavaScript::put([
                 'devices' => $devices
+            ]);
+
+            $userDevices = $devices->filter(function($device){
+                return $device->user_id == Auth::id();
+            });
+            //load all device from user
+//            $devices = Device::where('user_id', Auth::id())->get();
+//
+            JavaScript::put([
+                'userDevices' => $userDevices
             ]);
 
             return view('device.add');
@@ -65,6 +76,16 @@ class DeviceController extends Controller
 
             return response(['msg'=>'success'], 200, $this->jsonHeader());
         }
+    }
+
+    public function allByUser(){
+        $devices = Device::where('user_id', Auth::id())->get();
+
+        JavaScript::put([
+            'userDevices' => $devices
+        ]);
+
+        return $devices;
     }
 
 }

@@ -32,3 +32,5 @@ Route::get('user/status', 'UserController@allUserStatus');
 
 Route::get('record/all', 'RecordController@all');
 Route::get('report/all', 'RecordController@all');
+
+Route::get('device', 'DeviceController@add');

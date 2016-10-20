@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -46,7 +46,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="{{ url('home') }}">Home</a></li>
+                        <li><a href="{{ url('device') }}">Device</a></li>
+                        <li><a href="{{ url('report/all') }}">Report</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -83,7 +85,9 @@
         <!-- Scripts -->
         {{--we need jquery used in content-script--}}
         <script src="{{ url('js/app.js') }}"></script>
-        @yield('content')
+        <div  style="margin-top: 75px">
+            @yield('content')
+        </div>
     </div>
 
 

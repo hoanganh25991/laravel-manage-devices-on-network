@@ -28,6 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //load all user with devices
         $usersWithDevices = User::with(['devices' => function($device){
             $device->whereHas('records', function($record){
                 $record->onLine();
@@ -38,6 +39,7 @@ class HomeController extends Controller
             'users' => $usersWithDevices
         ]);
 
+        //load all record related to USER
         if(!Auth::check())
             return redirect('login');
 
@@ -49,6 +51,7 @@ class HomeController extends Controller
         JavaScript::put([
             'records' => $records
         ]);
+
 
         return view('home');
     }

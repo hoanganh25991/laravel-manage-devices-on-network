@@ -1,41 +1,47 @@
 <template>
     <div>
+        <h4>Find your device on network</h4>
+        <select v-model='selected' class="form-group">
+            <option v-for='(device, index) in devices'
+                    v-bind:value='device'
+                    class="form-control"
+            >
+                {{ device.name }} {{ device.mac }} {{ device.ip }} {{ device.manufacturer }}</option>
+        </select>
+
         <form action="http://localhost:8000/device/add" method="POST">
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">name</span>
                     <input type="text" name="device[name]" v-model="formDevice.name" class="form-control">
                 </div>
+            </div>
 
+            <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">mac</span>
                     <input type="text" name="device[mac]" v-model="formDevice.mac" class="form-control">
                 </div>
+            </div>
 
+            <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">ip</span>
                     <input type="text" name="device[ip]" v-model="formDevice.ip" class="form-control">
                 </div>
+            </div>
 
+            <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">manufacturer</span>
                     <input type="text" name="device[manufacturer]" v-model="formDevice.manufacturer" class="form-control">
                 </div>
+            </div>
 
-                <button class="btn btn-default btn-block">Save</button>
+            <div class="form-group pull-right">
+                <button class="btn btn-info">Save</button>
             </div>
         </form>
-
-        <select v-model='selected'>
-            <!--<header-component/>-->
-            <!--<div>this is template body</div>-->
-            <!--<other-component/>-->
-            <option v-for='(device, index) in devices'
-                    v-bind:value='device'
-            >
-                {{ device.name }} {{ device.mac }} {{ device.ip }} {{ device.manufacturer }}</option>
-        </select>
-        <!--<div>{{ selected }}</div>-->
     </div>
 </template>
 <style>
