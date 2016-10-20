@@ -34,3 +34,4 @@ Route::get('record/all', 'RecordController@all');
 Route::get('report/all', 'RecordController@all');
 
 Route::get('device', 'DeviceController@add');
+Route::post('device', 'DeviceController@add');
