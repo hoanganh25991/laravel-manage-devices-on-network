@@ -34,9 +34,8 @@ class DeviceController extends Controller
 
         //after update, save record @@
 
-//        return response(['msg'=>'success'], 200, $this->jsonHeader());
-        return redirect()->back();
-    } 
+        return response(['msg'=>'success'], 200, $this->jsonHeader());
+    }
     
     public function add(Request $req){
         if($req->method() == 'GET'){
@@ -75,7 +74,8 @@ class DeviceController extends Controller
             $device->user_id = Auth::id();
             $device->save();
 
-            return response(['msg'=>'success'], 200, $this->jsonHeader());
+//            return response(['msg'=>'success'], 200, $this->jsonHeader());
+            return redirect()->back();
         }
     }
 
