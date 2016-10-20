@@ -98,7 +98,7 @@ let countDevices = fiveMinuteOfDate.group().reduceSum(function(d){
 
 console.log(countDevices.top(10));
 
-let countDeviceRange = [0, 5];
+let countDeviceRange = [1, 5];
 
 let startColor = '#cbb956';
 let endColor = '#bf5329';
@@ -106,7 +106,7 @@ let endColor = '#bf5329';
 let heatColorMapping = function(d){
 	// console.log(d);
 	if(d > countDeviceRange[1])
-		return startColor;
+		return endColor;
 	if(d <= 0)
 		return "white";
 	// console.log(d3.scale.linear().domain(countDeviceRange).range([startColor, endColor])(d));
