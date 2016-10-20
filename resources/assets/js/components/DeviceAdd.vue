@@ -9,7 +9,7 @@
                 {{ device.name }} {{ device.mac }} {{ device.ip }} {{ device.manufacturer }}</option>
         </select>
 
-        <form action="http://localhost:8000/device/add" method="POST">
+        <form action="" method="POST">
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">name</span>
