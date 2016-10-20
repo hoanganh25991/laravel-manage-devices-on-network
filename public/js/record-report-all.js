@@ -131,11 +131,19 @@ let countDevices = fiveMinuteOfDate.group().reduce(
 
 console.log(countDevices.top(10));
 
-let countDeviceRange = [0, 1];
+let countDeviceRange = [0, 5];
+
+let startColor = '#cbb956';
+let endColor = '#bf5329';
 
 let heatColorMapping = function(d){
-	// return d3.scale.linear().domain(countDeviceRange).range(["#F5F8FA", '#8CC665'])(d);
-	return d3.scale.linear().domain(countDeviceRange).range(["white", '#8CC665'])(d);
+	// console.log(d);
+	if(d > countDeviceRange[1])
+		return startColor;
+	if(d <= 0)
+		return "white";
+	// console.log(d3.scale.linear().domain(countDeviceRange).range([startColor, endColor])(d));
+	return d3.scale.linear().domain(countDeviceRange).range([startColor, endColor])(d);
 };
 
 heatColorMapping.domain = function(){
@@ -166,6 +174,9 @@ monthlyReportChart
 	})
 	.colorAccessor(function(d){
 		// console.log(d.value);
+		// if(d.value.count > countDeviceRange[1])
+		// 	d.value.count = countDeviceRange[1];
+
 		return +d.value.count;
 	})
 	.title(function(d){
