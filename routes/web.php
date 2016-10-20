@@ -31,3 +31,4 @@ Route::get('record/all-by-user', 'RecordController@allByUser');
 Route::get('user/status', 'UserController@allUserStatus');
 
 Route::get('record/all', 'RecordController@all');
+Route::get('report/all', 'RecordController@all');

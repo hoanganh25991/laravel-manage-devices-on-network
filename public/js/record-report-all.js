@@ -47,7 +47,7 @@ recordReportMap = recordReportMap.concat(records);
 
 console.log(recordReportMap);
 
-let monthlyReportChart = dc.heatMap('#monthlyReportChart');
+let monthlyReportChart = dc.heatMap('#monthlyReport');
 
 let ndx = crossfilter(recordReportMap);
 window.ndx = ndx;
@@ -164,6 +164,7 @@ monthlyReportChart
 	})
 	.title(function(d){
 		let date = new Date(d.key[1] * (86400) * 1000);
+		date = new Date(date.getTime() + d.key[0]*5*60*1000);
 		// console.log(date);
 		// let actualDate = new Date(date.getTime() + d.key[0]*60*1000);
 		// console.log(actualDate)
