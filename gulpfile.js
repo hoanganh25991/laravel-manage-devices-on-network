@@ -17,5 +17,6 @@ elixir(mix => {
     mix.sass('app.scss')
        .webpack('app.js')
         .webpack('device-add-vue.js')
+        .webpack('user-status.js')
     ;
 });

@@ -14,4 +14,8 @@
         </div>
     </div>
 </div>
+<div id="userStatus">
+    <user-status></user-status>
+</div>
+<script src="{{ url('js/user-status.js') }}"></script>
 @endsection

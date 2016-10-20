@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use JavaScript;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $usersWithDevices = User::with(['devices' => function($device){
+            $device->whereHas('records', function($record){
+                $record->onLine();
+            });
+        }])->get();
+
+        JavaScript::put([
+            'users' => $usersWithDevices
+        ]);
+
         return view('home');
     }
 }
