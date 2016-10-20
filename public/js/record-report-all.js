@@ -20,7 +20,7 @@ let recordReportSample = {
 
 let recordReportMap = [];
 
-for(let j = 1; j <= numDayInMonth - 10; j += 1){
+for(let j = 1; j <= numDayInMonth; j += 1){
 	let date = new Date(year, month, j);
 	for(let i = START_RECORD_TIME*60; i <= END_RECORD_TIME*60; i += 5 ){
 		let currentSecond = Math.floor(date.getTime()/1000 + i*60);
