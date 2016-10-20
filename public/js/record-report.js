@@ -135,14 +135,11 @@ monthlyReportChart
 		return +d.value;
 	})
 	.title(function(d){
-		let date = new Date(d.key[1] * (86400) * 1000);
 		// console.log(date);
 		// let actualDate = new Date(date.getTime() + d.key[0]*60*1000);
 		// console.log(actualDate)
 		// var dateTitle = date.getFullYear() + '-' + monthNames[date.getMonth()] + '-' + date.getDate();
-		var dateTitle = date.toString();
-		return " Date:   " + dateTitle + "\n" +
-			"  Σ Devices:   " + d.value;
+		return " Σ Devices: " + d.value;
 	})
 	//                          .colors(d3.scale.linear()
 	//                                    .domain([1, 0])
