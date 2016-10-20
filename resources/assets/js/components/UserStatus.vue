@@ -1,8 +1,10 @@
 <template>
     <div class="usersStatus">
+        <p>Total user: {{ users.length }}</p>
+        <p><i class="fa fa-circle" aria-hidden="true"></i> {{ countUserOnline }}</p>
+        <p><i class="fa fa-circle-o" aria-hidden="true"></i> {{ users.length - countUserOnline }}</p>
         <user-info-row :user="user" v-for="user in users" ></user-info-row>
         <!--<user-info-row user="users[0]" ></user-info-row>-->
-        <div>{{ countUserOnline }}</div>
     </div>
 </template>
 <style>

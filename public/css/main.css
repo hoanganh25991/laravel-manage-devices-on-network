@@ -1,0 +1,23 @@
+.userInfoRow{
+    position: relative;
+    margin: 10px 0;
+    height: 40px;
+}
+.userInfoRow:hover{
+    background-color: lightgray;
+}
+.userInfoDetail{
+    position: absolute;
+    left: -200px;
+    width: 200px;
+    top: 0px;
+}
+
+.my_container {
+    width: 1300px;
+}
+
+#monthlyReportChartContainer{
+    padding: 5px;
+    /*background-color: darkgray;*/
+}

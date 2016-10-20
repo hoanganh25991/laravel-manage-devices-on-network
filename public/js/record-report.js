@@ -109,9 +109,15 @@ heatColorMapping.domain = function(){
 	return countDeviceRange;
 };
 
+let width = 713;
+let height = 200;
+
+width = 726;
+height = 500;
+
 monthlyReportChart
-	.width(960)
-	.height(544)
+	.width(width)
+	.height(height)
 	.xBorderRadius(0)
 	.yBorderRadius(0)
 	.dimension(fiveMinuteOfDate)
