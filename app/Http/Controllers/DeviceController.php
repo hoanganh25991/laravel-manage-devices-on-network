@@ -26,6 +26,7 @@ class DeviceController extends Controller
                 $device = new Device($val);
 
             //new record, attach record with device
+            $device->fill($val);
             $device->save();
 
             $record = new Record(['device_id' => $device->id]);
